@@ -1,0 +1,37 @@
+$color-bcg: linear-gradient(45deg, rgba(255,255,255,0.9136029411764706) 15%, rgba(221,103,103,1) 100%);
+$color-primary: rgba(50, 50, 50, .7);
+$color-text: rgba(200, 200, 200, .7);
+$color-default: rgba(201, 151, 151, 1);
+$color-border: red;
+
+::-webkit-scrollbar-button {
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:3px;
+    height:0px
+}
+    
+::-webkit-scrollbar-track {
+    background-color: $color-primary;
+    box-shadow:0px 0px 3px #000 inset;
+}
+    
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: $color-default;
+    box-shadow:0px 1px 1px #fff inset;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+    
+::-webkit-resizer{
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:7px;
+    height:0px
+}
+    
+::-webkit-scrollbar{
+    width: 6px;
+}
