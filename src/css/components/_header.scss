@@ -1,0 +1,26 @@
+.header {
+    height: 59px;
+    border-bottom: 2px solid $color-primary;
+
+    &-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        background: $color-bcg;
+    }
+
+    & img {
+        width: 130px;
+        height: 56px;
+    }
+
+    &-death {
+        font-size: 1.6rem;
+
+        &-count {
+            color: red;
+            font-weight: bold;
+        }
+    }
+}

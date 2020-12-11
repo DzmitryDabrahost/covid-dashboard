@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $color-primary;
+
+    button {
+        font-size: 1.2rem;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+
+        &:hover {
+            opacity: .8;
+            cursor: pointer;
+        }
+
+        &:active {
+            opacity: .5;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-primary;
+
+        &:hover {
+            opacity: .7;
+        }
+
+        &:active {
+            opacity: .3;
+        }
+    }
+    
+}
+
+:root {
+    font-size: 10px;
+}
