@@ -1,5 +1,6 @@
 import './css/style.css';
 
+import './js/mapInstance/mapInstance';
 import getSummaryDataCovid from './js/getSummaryDataCovid';
 import Country from './js/country';
 import searchItem from './js/search';

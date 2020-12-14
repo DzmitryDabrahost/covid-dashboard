@@ -36,8 +36,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: rgba(50, 50, 50, 0.7);
 }
 
 * button {
@@ -69,13 +67,19 @@
   opacity: .3;
 }
 
-:root {
-  font-size: 10px;
+html {
+  font-family: Helvetica, sans-serif;
 }
 
 .header {
   height: 59px;
-  border-bottom: 2px solid rgba(50, 50, 50, 0.7);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(500px, 80%) minmax(40px, 1fr);
+      grid-template-columns: minmax(500px, 80%) minmax(40px, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header-content {
@@ -85,11 +89,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 0 10px;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.913603) 15%, #dd6767 100%);
 }
 
 .header img {
@@ -99,11 +102,57 @@
 
 .header-death {
   font-size: 1.6rem;
+  margin-left: auto;
 }
 
 .header-death-count {
   color: red;
   font-weight: bold;
+}
+
+.header-menu {
+  position: fixed;
+  right: 70px;
+  top: 30px;
+  z-index: 110;
+  width: 28px;
+  height: 21px;
+  padding: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+}
+
+.header-menu__icon {
+  width: 100%;
+  height: 3px;
+  background: black;
+}
+
+.header-menu__icon--active {
+  background: white;
+}
+
+.root {
+  min-height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: start center;
+  background: #1A2C42;
+  padding: 1rem 1rem;
+}
+
+#map {
+  width: 100%;
+  height: 70vh;
 }
 
 .main {
