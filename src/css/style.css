@@ -398,6 +398,7 @@
   height: 82%;
   max-height: 82%;
   overflow: auto;
+  padding-right: 5px;
 }
 
 .right-column-item {

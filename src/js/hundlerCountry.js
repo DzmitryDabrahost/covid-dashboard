@@ -3,8 +3,12 @@ function checkCountryClicked(data) {
   allCountryList.addEventListener('click', (e) => {
     const target = e.target;
     const clickCountry = data.find(item => item.id === +target.dataset.id);
-    console.log(clickCountry);
+    if (clickCountry !== undefined) addTemplateChoiceCountry(clickCountry);
   });
+}
+
+function addTemplateChoiceCountry(clickCountry) {
+  console.log(clickCountry);
 }
 
 export default checkCountryClicked;
