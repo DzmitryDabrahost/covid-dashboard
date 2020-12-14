@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID19</title>
+
+    <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="//cdn.amcharts.com/lib/4/maps.js"></script>
+    <script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="//cdn.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/continentsLow.js"></script>
 </head>
 <body>
+    <div class="root">
+        <div id="map">
+
+        </div>
+    </div>
     <header class="header">
         <div class="header-content">
             <div class="header-logo">
@@ -17,6 +29,11 @@
             <div class="header-death">
                 total-death: <span class="header-death-count"></span>
             </div>
+        </div>
+        <div class="header-menu">
+            <div class="header-menu__icon"></div>
+            <div class="header-menu__icon"></div>
+            <div class="header-menu__icon"></div>
         </div>
     </header>
     <main class="main">
@@ -92,5 +109,6 @@
             <p>Special to:<a href="https://rs.school/js/" target="blank"><img src="https://rs.school/images/rs_school_js.svg" alt="RSSchool"></a></p>
         </div>
     </footer>
+
 </body>
 </html>
