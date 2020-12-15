@@ -208,7 +208,6 @@ function fadeStyles() {
 
 function getDate(data) {
   const index = localStorage.getItem('index');
-  console.log(index)
   const month = Number(index) < 9 ? `0${Number(index)}` : Number(index);
   let date;
   data < 10 ? date = `0${data}` : date = data;
