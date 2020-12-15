@@ -1,3 +1,4 @@
+import {handleData} from './mapInstance/mapInstance';
 export default class Country {
   constructor() {
     this.mainList = document.querySelector('.left-column-list-content');
@@ -21,6 +22,7 @@ export default class Country {
         id: element.countryInfo._id,
         updated: element.updated,
         name: element.country,
+        country: element.countryInfo.iso2,
         flag: element.countryInfo.flag,
         latitude: element.countryInfo.lat,
         longitude: element.countryInfo.long,
@@ -35,9 +37,12 @@ export default class Country {
       this.allCountry.push(item);
     });
     this.addDomTemplate();
-    console.log(this.allCountry);
+    handleData(this.allCountry)
   }
-
+  
+  takeAllCountry() {
+    return this.allCountry
+  }
   addDomTemplate() {
     this.allCountry.sort((a, b) => b.cases - a.cases);
     this.allCountry.forEach((element, index) => {
@@ -56,3 +61,4 @@ export default class Country {
     document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
   }
 }
+
