@@ -21,6 +21,7 @@ export default class Country {
         id: element.countryInfo._id,
         updated: element.updated,
         name: element.country,
+        code: element.countryInfo.iso2,
         flag: element.countryInfo.flag,
         latitude: element.countryInfo.lat,
         longitude: element.countryInfo.long,
@@ -51,7 +52,7 @@ export default class Country {
           <p class="list-death">${element.cases}</p>
         </div>
       `;
-      this.mainList.innerHTML += template;
+      this.mainList.insertAdjacentHTML('beforeend', template);
     });
     document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
   }

@@ -17,7 +17,7 @@ function getSummaryDataCovid(data) {
     rightColumnTotalCount.textContent = totalDeath;
     const sortData = data.sort((a, b) => b.deaths - a.deaths);
     createTemplate(sortData);
-  }, 700);
+  }, 1500);
 }
 
 function createTemplate(data) {
@@ -32,7 +32,7 @@ function createTemplate(data) {
         <p class="right-death">${item.deaths}</p>
       </div>
     `;
-    countryList.innerHTML += template;
+    countryList.insertAdjacentHTML('beforeend', template);
   });
 }
 

@@ -55,7 +55,7 @@
         display: flex;
         justify-content: space-between;
         color: inherit;
-        font-size: 1.3rem;
+        font-size: 13px;
     }
 
     &-diag {
@@ -75,7 +75,7 @@
     &-global-link {
         cursor: pointer;
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 13px;
         height: 20px;
         width: 50%;
         border: 1px solid $color-border;

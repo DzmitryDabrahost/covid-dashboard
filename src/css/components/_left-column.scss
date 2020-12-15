@@ -57,11 +57,11 @@
     }
 
     &-item {
+        @include font(13px, $color-primary, 400);
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: center;
-        font-size: 1.3rem;
         cursor: pointer;
 
         &:hover {
@@ -87,7 +87,7 @@
         border-radius: 5px;
 
         &-count {
-            font-size: 50px;
+            @include font(50px, $color-primary, bold);
         }
     }
 }
@@ -106,10 +106,12 @@
     }
 
     &-death {
-        color: red;
-        font-weight: bold;
-        font-size: 1.5rem;
+        @include font(15px, red, bold);
         pointer-events: none;
+    }
+
+    &-flag {
+        margin-right: 5px;
     }
 }
 
