@@ -1,4 +1,4 @@
-import {handleData} from './mapInstance/mapInstance';
+import { handleData } from './mapInstance/mapInstance';
 export default class Country {
   constructor() {
     this.mainList = document.querySelector('.left-column-list-content');
@@ -37,12 +37,13 @@ export default class Country {
       this.allCountry.push(item);
     });
     this.addDomTemplate();
-    handleData(this.allCountry)
+    handleData(this.allCountry);
   }
-  
+
   takeAllCountry() {
-    return this.allCountry
+    return this.allCountry;
   }
+
   addDomTemplate() {
     this.allCountry.sort((a, b) => b.cases - a.cases);
     this.allCountry.forEach((element, index) => {
@@ -61,4 +62,3 @@ export default class Country {
     document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
   }
 }
-
