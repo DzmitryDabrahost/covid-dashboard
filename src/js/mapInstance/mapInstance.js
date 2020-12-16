@@ -26,42 +26,71 @@ timeLineField.appendChild(timeLineFieldFill);
 slideContainer.append(btnLeft, timeLineField, btnRight);
 root.append(sliderHeading, slideContainer, markersContainer);
 
-
-const container = am4core.create(map, am4core.Container);
 am4core.useTheme(am4themes_animated);
-container.width = am4core.percent(100);
-container.height = am4core.percent(100);
-container.background.fill = am4core.color("#1A2C42");
-container.background.strokeWidth = 0;
-const mapInstance = container.createChild(am4maps.MapChart);
-mapInstance.height = am4core.percent(100);
-mapInstance.width = am4core.percent(100)
+const mapInstance = am4core.create('map', am4maps.MapChart);
 mapInstance.geodata = am4geodata_worldLow;
 mapInstance.projection = new am4maps.projections.Miller();
 const polygonSeries = new am4maps.MapPolygonSeries();
-polygonSeries.useGeodata = true;
 mapInstance.series.push(polygonSeries);
-polygonSeries.exclude = ["AQ"];
+polygonSeries.useGeodata = true;
 const polygonTemplate = polygonSeries.mapPolygons.template;
-polygonTemplate.tooltipText = "{name} - cases: {value}";
-polygonTemplate.fill = am4core.color("#474b4f");
-polygonTemplate.stroke = am4core.color("#1A2C42")
-mapInstance.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color("#1A2C42");
+polygonTemplate.applyOnClones = true;
+polygonTemplate.togglable = true;
+polygonTemplate.nonScalingStroke = true;
+polygonTemplate.tooltipText = '{name} - cases: {value}';
+polygonTemplate.fill = am4core.color('#474b4f');
+polygonTemplate.stroke = am4core.color('#1A2C42')
+mapInstance.backgroundSeries.mapPolygons.template.polygon.fill = am4core.color('#1A2C42');
 mapInstance.backgroundSeries.mapPolygons.template.polygon.fillOpacity = 1;
-const heatLegend = container.createChild(am4maps.HeatLegend);
-heatLegend.id = "heatLegend";
+polygonSeries.heatRules.push({
+  property: 'fill',
+  target: polygonSeries.mapPolygons.template,
+  min: am4core.color('#ECAF44'),
+  max: am4core.color('#BE2F29')
+});
+const heatLegend = mapInstance.createChild(am4maps.HeatLegend);
+heatLegend.id = 'heatLegend';
 heatLegend.series = polygonSeries;
-heatLegend.minColor = am4core.color("#ECAF44");
-heatLegend.maxColor = am4core.color("#BE2F29");
+heatLegend.minColor = am4core.color('#ECAF44');
+heatLegend.maxColor = am4core.color('#BE2F29');
 heatLegend.series = polygonSeries;
 heatLegend.height = am4core.percent(35);
-heatLegend.orientation = "vertical";
+heatLegend.orientation = 'vertical';
 heatLegend.marginRight = 50;
 heatLegend.marginTop = 30;
-heatLegend.align = "left";
-heatLegend.valign = "top";
+heatLegend.align = 'left';
+heatLegend.valign = 'top';
 heatLegend.valueAxis.renderer.labels.template.fontSize = 14;
-polygonTemplate.events.on("over", function(ev) {
+const imageSeries = mapInstance.series.push(new am4maps.MapImageSeries());
+imageSeries.dataFields.value = 'badCases';
+const imageTemplate = imageSeries.mapImages.template;
+imageTemplate.nonScaling = true
+imageTemplate.adapter.add('latitude', function(latitude, target) {
+  const polygon = polygonSeries.getPolygonById(target.dataItem.dataContext.id);
+  if(polygon){
+    return polygon.visualLatitude;
+   }
+   return latitude;
+})
+imageTemplate.adapter.add('longitude', function(longitude, target) {
+  const polygon = polygonSeries.getPolygonById(target.dataItem.dataContext.id);
+  if(polygon){
+    return polygon.visualLongitude;
+   }
+   return longitude;
+})
+const circle = imageTemplate.createChild(am4core.Circle);
+circle.fillOpacity = .9;
+circle.fill = am4core.color('#7DA2A9')
+circle.tooltipText = '{name} - deaths:{value}[/]';
+imageSeries.heatRules.push({
+  'target': circle,
+  'property': 'radius',
+  'min': 5,
+  'max': 35,
+  'dataField': 'value'
+})
+polygonTemplate.events.on('over', function(ev) {
     if (!isNaN(ev.target.dataItem.value)) {
       heatLegend.valueAxis.showTooltipAt(ev.target.dataItem.value)
     }
@@ -69,56 +98,34 @@ polygonTemplate.events.on("over", function(ev) {
       heatLegend.valueAxis.hideTooltip();
     }
   });
-polygonTemplate.events.on("out", function(ev) {
+polygonTemplate.events.on('out', function(ev) {
     heatLegend.valueAxis.hideTooltip();
   });
-
-
-
-const hs = polygonTemplate.states.create("hover");
-hs.properties.fill = am4core.color("#E0E0E0");
+let lastSelected;
+polygonTemplate.events.on('hit', function(ev) {
+  if (lastSelected) {
+    lastSelected.isActive = false;
+  }
+  ev.target.series.chart.zoomToMapObject(ev.target);
+  if (lastSelected !== ev.target) {
+    lastSelected = ev.target;
+  }
+})
+const hs = polygonTemplate.states.create('hover');
+hs.properties.fill = am4core.color('#E0E0E0');
+polygonSeries.exclude = ['AQ'];
 mapInstance.zoomControl = new am4maps.ZoomControl();
-mapInstance.zoomControl.valign = "top";
-
-polygonSeries.heatRules.push({
-  property: "fill",
-  target: polygonSeries.mapPolygons.template,
-  min: am4core.color("#ECAF44"),
-  max: am4core.color("#BE2F29")
+let homeButton = new am4core.Button();
+homeButton.events.on('hit', function(){
+  mapInstance.goHome();
 });
-
-const imageSeries = mapInstance.series.push(new am4maps.MapImageSeries());
-imageSeries.dataFields.value = "badCases";
-
-const imageTemplate = imageSeries.mapImages.template;
-imageTemplate.nonScaling = true
-imageTemplate.adapter.add("latitude", function(latitude, target) {
-  const polygon = polygonSeries.getPolygonById(target.dataItem.dataContext.id);
-  if(polygon){
-    return polygon.visualLatitude;
-   }
-   return latitude;
-})
-imageTemplate.adapter.add("longitude", function(longitude, target) {
-  const polygon = polygonSeries.getPolygonById(target.dataItem.dataContext.id);
-  if(polygon){
-    return polygon.visualLongitude;
-   }
-   return longitude;
-})
-
-const circle = imageTemplate.createChild(am4core.Circle);
-circle.fillOpacity = .9;
-circle.fill = am4core.color('#7DA2A9')
-circle.tooltipText = "{name} - deaths:{value}[/]";
-
-imageSeries.heatRules.push({
-  "target": circle,
-  "property": "radius",
-  "min": 5,
-  "max": 35,
-  "dataField": "value"
-})
+homeButton.icon = new am4core.Sprite();
+homeButton.padding(7, 5, 7, 5);
+homeButton.width = 30;
+homeButton.icon.path = 'M16,8 L14,8 L14,16 L10,16 L10,10 L6,10 L6,16 L2,16 L2,8 L0,8 L8,0 L16,8 Z M16,8';
+homeButton.marginBottom = 10;
+homeButton.parent = mapInstance.zoomControl;
+homeButton.insertBefore(mapInstance.zoomControl.plusButton);
 
 const createPoint = () => {
     const pointContainer = document.createElement('div');
@@ -169,8 +176,7 @@ const setMarkerTitle = (...title) => {
 
 function placePoints() {
     const {points, pointContainer, pointLabel} = findDOMElems();
-    
-    const dateArr = [5, 10, 15, 20, 25]
+    const dateArr = [5, 10, 15, 20, 25];
     for (let i = 0; i < pointContainer.length; i += 1) {
         const left = i * 25;
         pointContainer[i].style.left = left + '%';
@@ -185,7 +191,6 @@ placePoints();
 
 function handlePointClick(left) {
     const timeLineFieldFill = document.querySelector('.timeLineFieldFill');
-    console.log(timeLineFieldFill)
     timeLineFieldFill.style.width = left + '%';
 }
 
@@ -201,17 +206,14 @@ function fadeStyles() {
     });
 }
 
-function getDate(index) {
-  const {points, pointLabel} = findDOMElems();
-  const month = index < 9 ? `0${index + 1}` : index + 1;
-  document.body.addEventListener('click', e => {
-    if (e.target.closest('.point')) {
-      let date;
-      e.target.dataset.date < 10 ? date = `0${e.target.dataset.date}` : date = e.target.dataset.date;
-      const props = `2020-${month}-${date}`;
-      fetchApifromProps(props).then(data => handleDatafromProps(data))
-    }
-  })
+function getDate(data) {
+  const index = localStorage.getItem('index');
+  const month = Number(index) < 9 ? `0${Number(index)}` : Number(index);
+  let date;
+  data < 10 ? date = `0${data}` : date = data;
+  const props = `2020-${month}-${date}`;
+  console.log(props);
+  fetchApifromProps(props);
 }
 
 function handleDatafromProps(data) {
@@ -225,7 +227,6 @@ function handleDatafromProps(data) {
     createAnotheMapInstance(dataProps);
 }
 
-
 async function fetchApifromProps(props) {
     const url = `https://covid19-api.org/api/status?date=${props}`;
     const response = await fetch(url);
@@ -234,7 +235,7 @@ async function fetchApifromProps(props) {
         throw new Error("Something wrong with the Api")
       }
       const data = await response.json();
-      return data
+      handleDatafromProps(data)
     }catch(e) {
       alert(e)
     }
@@ -242,8 +243,10 @@ async function fetchApifromProps(props) {
 
 function addSlide() {
     const timeLineFieldFill = document.querySelector('.timeLineFieldFill');
+    const slideContainer = document.querySelector('.slideContainer');
     let i = 1;
-    document.body.addEventListener('click', e => {
+    let j = 2;
+    slideContainer.addEventListener('click', e => {
       if (e.target.closest('.btnRight')) {
         timeLineFieldFill.style.width = '0%';
         if (i >= monthArr.length) return;
@@ -252,15 +255,21 @@ function addSlide() {
         })
         fadeStyles();
         i += 1;
+        j += 1;
       }
       if(e.target.closest('.btnLeft')) {
         timeLineFieldFill.style.width = '0%';
         if (i <= 1) return;
         i -= 1;
+        j -= 1;
         fadeStyles();
         sliderHeading.innerText = monthArr[i-1];
       }
-      getDate(i);
+      if(e.target.closest('.point')) {
+        localStorage.setItem('index', j);
+        getDate(e.target.dataset.date);
+      }
+      
     })
 }
 addSlide()
@@ -268,27 +277,21 @@ addSlide()
 
 
 async function fetchApi() {
-  const url = 'https://covid19-api.org/api/status';
-  const url2 = 'https://covid19-api.org/api/timeline';
+  const url = 'https://covid19-api.org/api/timeline';
 
-  const [statusCases, totalCases] = await Promise.all([
-    fetch(url),
-    fetch(url2)
-  ]);
+  const totalCases = await fetch(url);
 
   try {
-    if(!statusCases.ok || !totalCases.ok) {
+    if(!totalCases.ok) {
       throw new Error("Something wrong with the Api")
     }
-    const status = await statusCases.json();
     const total = await totalCases.json();
-    setMarkerTitle(total[0].total_cases, total[0].total_deaths, total[0].total_recovered,)
-    return status
+    return total
   }catch(e) {
     alert(e)
   }
 }
-fetchApi().then(status => handleData(status))
+fetchApi().then(total => setMarkerTitle(total[0].total_cases, total[0].total_deaths, total[0].total_recovered,))
 
 function handleData(data) {
   const parseData = data.map(item => {
@@ -332,5 +335,4 @@ function openMapInstance() {
 }
 openMapInstance();
 
-    
-  
+export {handleData};
