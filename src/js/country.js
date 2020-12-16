@@ -56,7 +56,7 @@ export default class Country {
           <p class="list-death">${element.cases}</p>
         </div>
       `;
-      this.mainList.innerHTML += template;
+      this.mainList.insertAdjacentHTML('beforeend', template);
     });
     document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
   }

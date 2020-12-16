@@ -32,7 +32,8 @@ function createDomDeaths(data) {
   sortData.forEach(element => {
     const item = {
       country: element.name,
-      count: element.deaths
+      count: element.deaths,
+      today: element.todayDeaths
     };
     newData.push(item);
   });
@@ -48,7 +49,8 @@ function createDomRecovery(data) {
   sortData.forEach(element => {
     const item = {
       country: element.name,
-      count: element.recovered
+      count: element.recovered,
+      today: element.todayRecovered
     };
     newData.push(item);
   });
@@ -64,10 +66,11 @@ function createTemplate(data) {
           <p class="right-number">${index + 1}. </p>
           <p class="right-country-name">${item.country}</p>
         </div>
+        <p class="right-death-last-day">${item.today}</p>
         <p class="right-death">${item.count}</p>
       </div>
     `;
-    countryList.innerHTML += template;
+    countryList.insertAdjacentHTML('beforeend', template);
   });
 }
 
