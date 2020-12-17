@@ -1,4 +1,6 @@
 import './css/style.css';
+import './css/components/mainContent/content.css';
+import './css/components/mainContent/datapopup.css';
 
 import './js/mapInstance/mapInstance';
 import getSummaryDataCovid from './js/getSummaryDataCovid';

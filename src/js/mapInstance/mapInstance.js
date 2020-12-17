@@ -1,4 +1,5 @@
 import '../../css/components/map/styleMap.css';
+import {getOverallStats} from './overallStats.js';
 
 const root = document.querySelector('.root');
 const slideContainer = document.createElement('div');
@@ -170,7 +171,8 @@ const markers = Array.from({length: 3}).map(createMarker)
 const setMarkerTitle = (...title) => {
   const preTitles = ['cases:', 'deaths:', 'recov.:']
   const markerTitles = document.querySelectorAll('.markerTitle');
-  markerTitles.forEach((item, i) => item.innerText = `${preTitles[i]} ${title[i]}`)
+  markerTitles.forEach((item, i) => item.innerText = `${preTitles[i]} ${title[i]}`);
+  getOverallStats(title);
 }
 
 
@@ -327,11 +329,20 @@ function createAnotheMapInstance(dataProps) {
 function openMapInstance() {
   const root = document.querySelector('.root');
   const headerMenu = document.querySelector('.header-menu');
-  const headerMenuIcon = document.querySelectorAll('.header-menu__icon');
+
   headerMenu.addEventListener('click', () => {
+    headerMenu.classList.toggle('header-menu--active');
     root.classList.toggle('root--active');
-    headerMenuIcon.forEach(item => item.classList.toggle('header-menu__icon--active'));
+    if(headerMenu.classList.contains('header-menu--active')) {
+        headerMenu.innerText = 'Close Map';
+    } else {
+      setTimeout(() => {
+        headerMenu.innerText = 'Open Map';
+      }, 300)
+    }
+
   })
+  
 }
 openMapInstance();
 

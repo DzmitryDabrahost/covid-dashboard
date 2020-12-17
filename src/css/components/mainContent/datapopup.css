@@ -1,0 +1,114 @@
+.dataPopUp {
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 1);
+    padding: 3rem 2rem;
+    display: grid;
+    display: none;
+    place-items: start center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+}
+.dataPopUp--active {
+    display: grid;
+}
+
+.dataPopUp__container {
+    width: min(700px, 100%);
+    min-height: 60vh;
+    position: relative;
+}
+.dataContainer {
+    width: 100%;
+    min-height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.dataPopUp__data {
+    background: #7DA2A9;
+    height: 25vh;
+}
+.dataPopUp__data:first-child {
+    background:#ECAF44;
+}
+.dataPopUp__data:nth-child(3){
+    background: #5DAA68;
+}
+.dataPopUp__data:last-child{
+    background: rgba(236, 63, 63, 1);
+}
+.dataPopUp__country, .dataPopUp__bottom {
+    height: 5vh;
+    background: rgba(255, 255, 255, 1);
+    color: #1A2C42;
+    
+}
+.dataPopUp__data {
+    display: grid;
+    place-items: center start;
+    padding: 1rem;
+}
+.data-item > * {
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+}
+.dataPopUp__country {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.dataPopUp__graphic {
+    width: 100%;
+    height: 50vh;
+    padding: 3rem;
+    background: grey;
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    display: none;
+    opacity: 0;
+}
+.dataPopUp__graphic--active {
+    display: block;
+    opacity: 1;
+}
+.dataPopUp__bottom {
+    display: grid;
+    place-items: center;
+    background: #EEEEEE;
+    cursor: pointer;
+    transition: all .3s;
+}
+.dataPopUp__bottom:hover {
+    color:#9E9E9E;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+}
+.closePopUp {
+    position: absolute;
+    right: 2rem;
+    top: 28px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    transition: all, .3s;
+}
+.closePopUp:hover {
+    color:#9E9E9E;
+}
+
+
+@media (max-width: 590px) {
+    .dataPopUp__data {
+        height: 17vh;
+    }
+    .dataPopUp__data:last-child {
+        height: 25vh;
+    }
+    .dataPopUp__graphic {
+        height: 76vh;
+    }
+}

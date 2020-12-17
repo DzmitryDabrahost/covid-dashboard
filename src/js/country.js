@@ -1,4 +1,6 @@
 import {handleData} from './mapInstance/mapInstance';
+import {getDataByCountry, filterDataByCountry} from './mapInstance/overallStats';
+
 export default class Country {
   constructor() {
     this.mainList = document.querySelector('.left-column-list-content');
@@ -36,29 +38,26 @@ export default class Country {
       };
       this.allCountry.push(item);
     });
-    this.addDomTemplate();
-    handleData(this.allCountry)
+    // this.addDomTemplate();
+    handleData(this.allCountry);
+    getDataByCountry(this.allCountry);
   }
-  
-  takeAllCountry() {
-    return this.allCountry
-  }
-  addDomTemplate() {
-    this.allCountry.sort((a, b) => b.cases - a.cases);
-    this.allCountry.forEach((element, index) => {
-      const template = `
-        <div class="left-column-item" data-id="${element.id}">
-          <div class="list-country">
-            <p class="list-number">${index + 1}. </p>
-            <p class="list-flag"><img src="${element.flag}" alt="flag"></p>
-            <p class="list-country-name">${element.name}</p>
-          </div>
-          <p class="list-death">${element.cases}</p>
-        </div>
-      `;
-      this.mainList.innerHTML += template;
-    });
-    document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
-  }
+  // addDomTemplate() {
+  //   this.allCountry.sort((a, b) => b.cases - a.cases);
+  //   this.allCountry.forEach((element, index) => {
+  //     const template = `
+  //       <div class="left-column-item" data-id="${element.id}">
+  //         <div class="list-country">
+  //           <p class="list-number">${index + 1}. </p>
+  //           <p class="list-flag"><img src="${element.flag}" alt="flag"></p>
+  //           <p class="list-country-name">${element.name}</p>
+  //         </div>
+  //         <p class="list-death">${element.cases}</p>
+  //       </div>
+  //     `;
+  //     this.mainList.innerHTML += template;
+  //   });
+  //   document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
+  // }
 }
 

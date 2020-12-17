@@ -11,6 +11,7 @@
     background: #1A2C42;
     padding: 1rem 1rem;
     z-index: 100;
+    transition: all .5s;
 }
 .root--active {
     top: 0;

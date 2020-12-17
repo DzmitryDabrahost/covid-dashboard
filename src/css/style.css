@@ -36,22 +36,8 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-* button {
-  font-size: 1.2rem;
   outline: none;
-  border: none;
-  border-radius: 5px;
-}
-
-* button:hover {
-  opacity: .8;
-  cursor: pointer;
-}
-
-* button:active {
-  opacity: .5;
+  outline-offset: none;
 }
 
 * a {
@@ -69,76 +55,46 @@
 
 html {
   font-family: Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .header {
-  height: 59px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: minmax(500px, 80%) minmax(40px, 1fr);
-      grid-template-columns: minmax(500px, 80%) minmax(40px, 1fr);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.header-content {
+  padding: 1.5rem 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 0 10px;
 }
 
-.header img {
-  width: 130px;
-  height: 56px;
-}
-
-.header-death {
-  font-size: 1.6rem;
-  margin-left: auto;
-}
-
-.header-death-count {
-  color: red;
-  font-weight: bold;
+.header-title {
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .header-menu {
-  position: fixed;
-  right: 70px;
-  top: 30px;
-  z-index: 110;
-  width: 28px;
-  height: 21px;
-  padding: 4px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000;
   cursor: pointer;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin-left: auto;
 }
 
-.header-menu__icon {
-  width: 100%;
-  height: 3px;
-  background: black;
+.header-menu:hover {
+  color: #9E9E9E;
 }
 
-.header-menu__icon--active {
-  background: white;
+.header-menu--active {
+  position: fixed;
+  right: 2rem;
+  top: 28px;
+  color: white;
+  z-index: 210;
 }
 
 .root {
@@ -153,6 +109,18 @@ html {
 #map {
   width: 100%;
   height: 70vh;
+}
+
+@media (max-width: 620px) {
+  .header-title {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 590px) {
+  .header-title {
+    display: none;
+  }
 }
 
 .main {
