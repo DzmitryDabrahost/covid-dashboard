@@ -253,6 +253,10 @@ html {
 }
 
 .left-column-item {
+  font-weight: 400;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif, sans-serif;
+  color: rgba(50, 50, 50, 0.7);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -263,7 +267,6 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.3rem;
   cursor: pointer;
 }
 
@@ -297,7 +300,10 @@ html {
 }
 
 .left-column-total-count {
+  font-weight: bold;
   font-size: 50px;
+  font-family: "Roboto", sans-serif, sans-serif;
+  color: rgba(50, 50, 50, 0.7);
 }
 
 .list-number {
@@ -317,10 +323,15 @@ html {
 }
 
 .list-death {
-  color: red;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif, sans-serif;
+  color: red;
   pointer-events: none;
+}
+
+.list-flag {
+  margin-right: 5px;
 }
 
 .hide {
@@ -415,6 +426,7 @@ html {
   height: 82%;
   max-height: 82%;
   overflow: auto;
+  padding-right: 5px;
 }
 
 .right-column-item {
@@ -425,7 +437,7 @@ html {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: inherit;
-  font-size: 1.3rem;
+  font-size: 13px;
 }
 
 .right-column-diag {
@@ -448,7 +460,7 @@ html {
 .right-column-global-link {
   cursor: pointer;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 13px;
   height: 20px;
   width: 50%;
   border: 1px solid red;

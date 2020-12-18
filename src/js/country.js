@@ -60,4 +60,3 @@ export default class Country {
   //   document.querySelector('.left-column-total-count').textContent = this.allCountry.length;
   // }
 }
-

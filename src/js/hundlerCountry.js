@@ -7,4 +7,8 @@ function checkCountryClicked(data) {
   // });
 }
 
+function addTemplateChoiceCountry(clickCountry) {
+  console.log(clickCountry);
+}
+
 export default checkCountryClicked;
