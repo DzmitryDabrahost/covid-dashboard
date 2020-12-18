@@ -41,7 +41,7 @@ export default class Country {
       this.allCountry.push(item);
     });
     const lastUpdated = moment(this.allCountry[0].updated).subtract('days').calendar();
-    document.querySelector('.stats-heading__subtitle').textContent = `Last update: ${lastUpdated}`;
+    document.querySelector('.stats-heading__subtitle').textContent = `Updated: ${lastUpdated}`;
     handleData(this.allCountry);
     sortedHundlers(this.allCountry);
     getDataByCountry(this.allCountry.sort((a, b) => b.cases - a.cases));
