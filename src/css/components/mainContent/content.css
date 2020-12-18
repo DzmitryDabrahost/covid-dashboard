@@ -6,6 +6,7 @@ img {
     width: min(1600px, 100%);
     padding: 3rem 2rem;
     background: #F7F7F7;
+    margin: 0 auto;
 }
 .header-content {
     width: min(1000px, 85%);
@@ -40,6 +41,8 @@ img {
     height: 100px;
     padding: 1rem;
     background: #7DA2A9;
+    cursor: pointer;
+    transition: all .5s;
 }
 .tabsContainer__tab:first-child {
     background: #ECAF44;
@@ -47,19 +50,26 @@ img {
 .tabsContainer__tab:last-child {
     background: #5DAA68;
 }
+.tabsContainer__tab:hover {
+    background: rgba(50, 50, 50, .5);
+}
+.tabsContainer__tab:active {
+    opacity: .3;
+}
 .tabHeading {
     font-size: 1.5rem;
     color: #1A2C42;
+    pointer-events: none;
 }
 .tabQ {
     font-size: 1.3rem;
     font-weight: 700;
     color: rgba(255, 255, 255, 1);
     letter-spacing: 1px;
+    pointer-events: none;
 }
 .countriesContainer {
     width: 100%;
-    min-height: 50vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: .5rem;
@@ -74,7 +84,7 @@ img {
     justify-content: space-between;
     padding: .5rem;
     cursor: pointer;
-    transition: all .3s;
+    transition: all .5s;
 }
 .country:hover {
     background: #9E9E9E;
