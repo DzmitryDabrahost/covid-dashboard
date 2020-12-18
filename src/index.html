@@ -20,24 +20,80 @@
     </div>
     <header class="header">
         <div class="header-content">
-            <div class="header-logo">
+            <!-- <div class="header-logo">
                 <a href="#"><img src="./assets/covid-logo.jpg" alt="covid"></a>
-            </div>
+            </div> -->
             <div class="header-title">
-                <h1>This is the COVID19 dashboard, a sad statistic on this issue</h1>
+                <h1>COVID19</h1>
             </div>
-            <div class="header-death">
-                total-death: <span class="header-death-count"></span>
-            </div>
+            <form class="searchForm">
+                <input type="text" class = "searchField" name = "search" placeholder="Type country name">
+                <button class="searchBtn">Search</button>
+            </form>
         </div>
-        <div class="header-menu">
-            <div class="header-menu__icon"></div>
-            <div class="header-menu__icon"></div>
-            <div class="header-menu__icon"></div>
-        </div>
+        <div class="header-menu"> Open Map </div>
     </header>
     <main class="main">
-        <div class="main-content">
+        <div class="dataPopUp">
+            <div class="closePopUp">Close</div>
+            <div class="dataPopUp__container">
+                <h4 class="dataPopUp__country"></h4>
+                <div class="dataContainer">
+                    <div class="dataPopUp__data">
+                        <div class="data-item data-item__cases">
+                            <div class="data-item__overall"></div>
+                            <div class ="data-item__latest"></div>
+                            <div class="data-item__population"></div>
+                        </div>
+                    </div>
+                    <div class="dataPopUp__data">
+                        <div class="data-item data-item__deaths">
+                            <div class="data-item__overall"></div>
+                            <div class ="data-item__latest"></div>
+                            <div class="data-item__population"></div>
+                        </div>
+                    </div>
+                    <div class="dataPopUp__data">
+                        <div class="data-item data-item__recoveries">
+                            <div class="data-item__overall"></div>
+                            <div class ="data-item__latest"></div>
+                            <div class="data-item__population"></div>
+                        </div>
+                    </div>
+                    <div class="dataPopUp__data">
+                        <div class="data-item data-item__today">
+                            <div class="data-item__overall"></div>
+                            <div class ="data-item__latest"></div>
+                            <div class="data-item__population"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dataPopUp__graphic"></div>
+                <div class="dataPopUp__bottom">More</div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="statsHeadingG">Overall Statistics</h2>
+            <div class="tabsContainer">
+                <div class="tabsContainer__tab">
+                    <h3 class = 'tabHeading'>Covid Cases:</h3>
+                    <p class="tabQ"></p>
+                </div>
+                <div class="tabsContainer__tab">
+                    <h3 class = 'tabHeading'>Deaths:</h3>
+                    <p class="tabQ"></p>
+                </div>
+                <div class="tabsContainer__tab">
+                    <h3 class = 'tabHeading'>Recoveries:</h3>
+                    <p class="tabQ"></p>
+                </div>
+            </div>
+            <h2 class="statsHeadingG statsHeadingG--modify">Statistics by Country</h2>
+            <div class="countriesContainer">
+               
+            </div>
+        </div>
+        <!-- <div class="main-content">
             <div class="left-column">
                 <div class="main-total">
                     <span class="main-total-title">Global Cases</span>
@@ -63,17 +119,6 @@
                     <span>countries/region</span>
                 </div>
             </div>
-        
-            <div class="center">
-                <div class="center-top">
-                    <div class="center-top-map">
-
-                    </div>
-                </div>
-                <div class="center-bottom">
-
-                </div>
-            </div>
             <div class="right-column">
                 <div class="right-column-total">
                     <div class="right-column-total-content">
@@ -92,9 +137,9 @@
 
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
-    <footer class="footer">
+    <!-- <footer class="footer">
         <div class="footer-author">
             <p class="footer-autor-title">Made by:</p>
             <div class="footer-link">
@@ -108,7 +153,7 @@
         <div class="footer-logo">
             <p>Special to:<a href="https://rs.school/js/" target="blank"><img src="https://rs.school/images/rs_school_js.svg" alt="RSSchool"></a></p>
         </div>
-    </footer>
+    </footer> -->
 
 </body>
 </html>

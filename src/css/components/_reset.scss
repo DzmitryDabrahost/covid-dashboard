@@ -2,24 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    outline-offset: none;
     // font-family: Verdana, Geneva, Tahoma, sans-serif;
     // color: $color-primary;
 
-    button {
-        font-size: 1.2rem;
-        outline: none;
-        border: none;
-        border-radius: 5px;
+    // button {
+    //     font-size: 1.2rem;
+    //     outline: none;
+    //     border: none;
+    //     border-radius: 5px;
 
-        &:hover {
-            opacity: .8;
-            cursor: pointer;
-        }
+    //     &:hover {
+    //         opacity: .8;
+    //         cursor: pointer;
+    //     }
 
-        &:active {
-            opacity: .5;
-        }
-    }
+    //     &:active {
+    //         opacity: .5;
+    //     }
+    // }
 
     a {
         text-decoration: none;
@@ -36,10 +38,7 @@
     
 }
 
-// :root {
-//     font-size: 10px;
-// }
-
 html {
     font-family: Helvetica, sans-serif;
+    font-size: 14px;
   }
