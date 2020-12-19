@@ -20,16 +20,10 @@
     </div>
     <header class="header">
         <div class="header-content">
-            <!-- <div class="header-logo">
-                <a href="#"><img src="./assets/covid-logo.jpg" alt="covid"></a>
-            </div> -->
             <div class="header-title">
                 <h1>COVID19</h1>
             </div>
-            <form class="searchForm">
-                <input type="text" class = "searchField" name = "search" placeholder="Type country name">
-                <button class="searchBtn">Search</button>
-            </form>
+            <input type="text" class = "searchField" name = "search" placeholder="Type country name">
         </div>
         <div class="header-menu"> Open Map </div>
     </header>
@@ -75,88 +69,56 @@
             </div>
         </div>
         <div class="container">
-            <h2 class="statsHeadingG">Overall Statistics</h2>
-            <h3 class="stats-heading__subtitle"></h3>
             <div class="tabsContainer">
-                <div class="tabsContainer__tab">
-                    <h3 class = 'tabHeading'>Cases:</h3>
-                    <p class="tabQ"></p>
-                </div>
-                <div class="tabsContainer__tab">
-                    <h3 class = 'tabHeading'>Deaths:</h3>
-                    <p class="tabQ"></p>
-                </div>
-                <div class="tabsContainer__tab">
-                    <h3 class = 'tabHeading'>Recovered:</h3>
-                    <p class="tabQ"></p>
-                </div>
-            </div>
-            <h2 class="statsHeadingG statsHeadingG--modify">Statistics by Country</h2>
-            <div class="countriesContainer">
-               
-            </div>
-        </div>
-        <!-- <div class="main-content">
-            <div class="left-column">
-                <div class="main-total">
-                    <span class="main-total-title">Global Cases</span>
-                    <span class="main-total-count"></span>
-                </div>
-                <div class="left-column-field">
-                    <div class="left-column-content">
-                        <div class="left-column-search">
-                            <form class="left-column-form">
-                                <input type="search" class="left-column-form-input" placeholder="Enter country">
-                                <button class="button left-column-form-button">&#128269;</button>
-                            </form>
-                        </div>
-                        <div class="left-column-list">
-                            <div class="left-column-list-content">
-                                
-                            </div>
-                        </div>
+                <h2 class="statsHeadingG">Overall Statistics</h2>
+                <div class="allTabs">
+                    <div class="allTabs__tab tab--yellow">
+                        <h3 class = 'tabHeading'>Cases:</h3>
+                        <p class="tabQ"></p>
+                    </div>
+                    <div class="allTabs__tab tab--bluGrey">
+                        <h3 class = 'tabHeading'>Deaths:</h3>
+                        <p class="tabQ"></p>
+                    </div>
+                    <div class="allTabs__tab tab--green">
+                        <h3 class = 'tabHeading'>Recovered:</h3>
+                        <p class="tabQ"></p>
                     </div>
                 </div>
-                <div class="left-column-total">
-                    <span class="left-column-total-count"></span>
-                    <span>countries/region</span>
-                </div>
+                <h4 class="stats-heading__subtitle"></h4>
+                <div class="overAllChartOpen">Open Overall Chart >></div>
             </div>
-            <div class="right-column">
-                <div class="right-column-total">
-                    <div class="right-column-total-content">
-                        <p class="right-column-total-title"></p>
-                        <p class="right-column-total-count"></p>
-                        <div class="right-column-total-list">
-
-                        </div>
-                    </div>
-                    <div class="right-column-slider">
-                        <p class="right-column-global-link border-top">Global death</p>
-                        <p class="right-column-global-link">Global recovery</p>
-                    </div>
-                </div>
-                <div class="right-column-diag">
+            <div class="countriesStatsC">
+                <div class="overAllChartContainer">
 
                 </div>
+                <div class="statsHeadingGCont">
+                    <h2 class="statsHeadingG">Statistics by Country</h2>
+                    <div class="sortCountries">
+                        <p class="clickToSortLabel">Click to sort by:</p>
+                        <div class="sortCountries__var sortCountries__var--yellow"></div>
+                        <div class="sortCountries__var sortCountries__var--blueGrey"></div>
+                        <div class="sortCountries__var sortCountries__var--green"></div>
+                    </div>
+                </div>
+                <div class="countriesContainer"></div>
             </div>
-        </div> -->
+        </div>     
     </main>
-    <!-- <footer class="footer">
-        <div class="footer-author">
-            <p class="footer-autor-title">Made by:</p>
-            <div class="footer-link">
-                <img class="footer-icon" src="./assets/github-logo.png" alt="gitlogo">
-                <a href="https://github.com/DzmitryDabrahost" target="blank">Dzmitry Dabrahost</a>
+    <footer class="footer">
+        <div class="footer__rsschool">
+            <a href="https://rs.school/js/" target="blank">
+                <img class = 'rsschool__logo' src="https://rs.school/images/rs_school_js.svg" alt="RSSchool">
+            </a>
+            <p class = "taskYear" >2020</p>
+        </div>
+        <div class="footer__links">
+            <img class="github__logo" src="./assets/github-logo.png" alt="gitlogo">
+            <div class="linksContainer">
+                <a class = "links__item" href="https://github.com/DzmitryDabrahost" target="blank">Dzmitry Dabrahost</a>
+                <a class = "links__item" href="https://github.com/Seaboard191743" target="blank">Seaboard191743</a>
             </div>
         </div>
-        <div class="footer-date">
-            last data update: <span class="footer-date-count"></span>
-        </div>
-        <div class="footer-logo">
-            <p>Special to:<a href="https://rs.school/js/" target="blank"><img src="https://rs.school/images/rs_school_js.svg" alt="RSSchool"></a></p>
-        </div>
-    </footer> -->
-
+    </footer>
 </body>
 </html>

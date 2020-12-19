@@ -1,12 +1,10 @@
 .header {
-    padding: 1.5rem 2rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
-
-    // & img {
-    //     width: 130px;
-    //     height: 56px;
-    // }
+    height: 10vh;
+    margin: 0 auto;
+   
     &-title {
         transition: all .3s;
     }

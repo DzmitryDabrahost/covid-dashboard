@@ -42,7 +42,6 @@ function getDataByCountry(data) {
     countriesContainer.append(country);
   });
   fillPopupWithData(data);
-  filterDataByCountry();
 }
 
 function fillPopupWithData(data) {
@@ -88,38 +87,26 @@ function closePopUp(dataPopUp) {
   });
 }
 
-function openClosePopUpGraphic() {
-  const more = document.querySelector('.dataPopUp__bottom');
-  const graphic = document.querySelector('.dataPopUp__graphic');
-  more.addEventListener('click', () => {
-    graphic.classList.toggle('dataPopUp__graphic--active');
-    if (graphic.classList.contains('dataPopUp__graphic--active')) {
-      more.innerText = 'Less';
+function openCloseAdds(target, manager, textInitial, textUpdate) {
+  const elem = document.querySelector(manager);
+  const item = document.querySelector(target);
+  elem.addEventListener('click', () => {
+    item.classList.toggle(`${target.substring(1)}--active`);
+    if (item.classList.contains(`${target.substring(1)}--active`)) {
+      elem.innerText = textUpdate;
     } else {
-      more.innerText = 'More';
+      elem.innerText = textInitial;
     }
   });
 }
-openClosePopUpGraphic();
+openCloseAdds('.dataPopUp__graphic', '.dataPopUp__bottom', 'More', 'Less');
+openCloseAdds(
+  '.overAllChartContainer', 
+  '.overAllChartOpen', 
+  'Open Overall Chart >>', 
+  'Close Overall Chart <<'
+);
 
-function filterDataByCountry() {
-  const searchField = document.querySelector('.searchField');
-  const searchForm = document.querySelector('.searchForm');
-  const country = document.querySelectorAll('.country');
-  const countryName = document.querySelectorAll('.countryName');
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const value = searchField.value.toLowerCase();
-    country.forEach((item, i) => {
-      const name = countryName[i].innerText.toLowerCase();
-      if (!name.startsWith(value)) {
-        item.classList.add('country--hide');
-      } else {
-        item.className = 'country';
-      }
-    });
-    searchField.value = '';
-  });
-}
 
-export { getOverallStats, getDataByCountry, filterDataByCountry };
+
+export { getOverallStats, getDataByCountry};
