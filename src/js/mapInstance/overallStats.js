@@ -71,9 +71,9 @@ function fillPopupWithData(data) {
       dataItemRecoveries.children[1].innerText = `Today Recovery cases: ${todayRecovered}`;
       dataItemRecoveries.children[2].innerText = `Recovery cases 100k people(cut): ${Math.round(recovered / (population / 100000)) || 0}`;
 
-      dataItemToday.children[0].innerText = `Today Covid cases 100k people(cut): ${Math.round(todayCases / (population / 100000)) || 0}`;
-      dataItemToday.children[1].innerText = `Today Death cases 100k people(cut): ${Math.round(todayDeaths / (population / 100000)) || 0}`;
-      dataItemToday.children[2].innerText = `Today Recovery cases 100k people(cut): ${Math.round(todayRecovered / (population / 100000)) || 0}`;
+      dataItemToday.children[0].innerText = `Today cases 100k people(cut): ${Math.round(todayCases / (population / 100000)) || 0}`;
+      dataItemToday.children[1].innerText = `Today Deaths 100k people(cut): ${Math.round(todayDeaths / (population / 100000)) || 0}`;
+      dataItemToday.children[2].innerText = `Today Recovered 100k people(cut): ${Math.round(todayRecovered / (population / 100000)) || 0}`;
       chart.getData(name);
     });
   });

@@ -60,31 +60,37 @@
     text-transform: uppercase;
 }
 .dataPopUp__graphic {
+    position: relative;
     width: 100%;
     height: 50vh;
-    padding: 3rem;
+    padding: 1rem;
     background: white;
     position: absolute;
     top: 5vh;
     left: 0;
     display: none;
-    opacity: 0;
+    border: 1px solid #E0E0E0;
+}
+#chart {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .dataPopUp__graphic--active {
     display: block;
-    opacity: 1;
 }
 .dataPopUp__bottom {
     display: grid;
     place-items: center;
     background: #EEEEEE;
+    border-bottom: 1px solid #BDBDBD;
     cursor: pointer;
     transition: all .3s;
 }
 .dataPopUp__bottom:hover {
-    color:#9E9E9E;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    color:#424242;
+    background:#E0E0E0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
 }
 .closePopUp {
     position: absolute;
@@ -101,7 +107,7 @@
 }
 
 
-@media (max-width: 590px) {
+@media (max-width: 561px) {
     .dataPopUp__data {
         height: 17vh;
     }
