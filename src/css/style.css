@@ -430,4 +430,55 @@ html {
 .color-green {
   color: green;
 }
+
+.toggle-last-day {
+  position: absolute;
+  top: 0;
+  right: 235px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 8px;
+          column-gap: 8px;
+}
+
+.toggle-last-day-title {
+  color: #1a2c42;
+}
+
+.toggle-last-day-item {
+  width: 50px;
+  position: relative;
+  height: 25px;
+  border-radius: 30px;
+  background-color: #7da2a9;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.toggle-last-day-item:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background-color: #ecaf44;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.item-on {
+  background-color: #38aa3c;
+}
+
+.item-on:after {
+  content: '';
+  left: 25px;
+}
 /*# sourceMappingURL=style.css.map */

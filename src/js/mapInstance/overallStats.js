@@ -11,6 +11,7 @@ function getOverallStats(data) {
 function getDataByCountry(data) {
   const countriesContainer = document.querySelector('.countriesContainer');
   countriesContainer.innerHTML = '';
+  const toggle = document.querySelector('.toggle-last-day-item').classList.contains('item-on');
   data.forEach((item, index) => {
     const country = document.createElement('div');
     const countryAttr = document.createElement('div');
@@ -32,9 +33,9 @@ function getDataByCountry(data) {
     countryDeaths.classList.add('countryDeaths');
     countryRecoveries.classList.add('countryRecoveries');
     countryName.innerText = `${index + 1}. ${item.name}`;
-    countryCases.innerText = `Cases: ${item.cases}` || '0';
-    countryDeaths.innerText = `Deaths: ${item.deaths}` || '0';
-    countryRecoveries.innerText = `Recovered: ${item.recovered}` || '0';
+    countryCases.innerText = `Cases: ${toggle ? item.todayCases : item.cases}` || '0';
+    countryDeaths.innerText = `Deaths: ${toggle ? item.todayDeaths : item.deaths}` || '0';
+    countryRecoveries.innerText = `Recovered: ${toggle ? item.todayRecovered : item.recovered}` || '0';
 
     countryAttr.append(countryFlag, countryName);
     countryStats.append(countryCases, countryDeaths, countryRecoveries);
@@ -101,12 +102,10 @@ function openCloseAdds(target, manager, textInitial, textUpdate) {
 }
 openCloseAdds('.dataPopUp__graphic', '.dataPopUp__bottom', 'More', 'Less');
 openCloseAdds(
-  '.overAllChartContainer', 
-  '.overAllChartOpen', 
-  'Open Overall Chart >>', 
+  '.overAllChartContainer',
+  '.overAllChartOpen',
+  'Open Overall Chart >>',
   'Close Overall Chart <<'
 );
 
-
-
-export { getOverallStats, getDataByCountry};
+export { getOverallStats, getDataByCountry };
