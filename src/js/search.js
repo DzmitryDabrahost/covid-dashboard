@@ -1,6 +1,5 @@
 export default function searchItem() {
   const input = document.querySelector('.searchField');
-
   input.oninput = function changeInput() {
     const allCountyToList = [...document.querySelectorAll('.country')];
     let val = this.value.trim().toUpperCase();
