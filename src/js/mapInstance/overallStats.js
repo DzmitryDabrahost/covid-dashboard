@@ -108,4 +108,18 @@ openCloseAdds(
   'Close Overall Chart <<'
 );
 
+function openCloseKeyboard() {
+  const keyboardIcon = document.querySelector('.keyboard-icon');
+  const keyboard = document.querySelector('.virtual-keyboard');
+  const closeBtn = document.querySelector('.closeBtn');
+  keyboardIcon.addEventListener('click', () => {
+    keyboard.classList.add('virtual-keyboard--active');
+  });
+  closeBtn.addEventListener('click', () => {
+    keyboard.classList.remove('virtual-keyboard--active');
+  });
+
+}
+openCloseKeyboard();
+
 export { getOverallStats, getDataByCountry };
