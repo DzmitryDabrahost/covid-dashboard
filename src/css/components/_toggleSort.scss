@@ -1,0 +1,43 @@
+.toggle-last-day {
+    position: absolute;
+    top: 0;
+    right: 235px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    &-title {
+        color: rgb(26, 44, 66);
+    }
+
+    &-item {
+        width: 50px;
+        position: relative;
+        height: 25px;
+        border-radius: 30px;
+        background-color: rgb(125, 162, 169);
+        transition: all 0.3s;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 25px;
+            height: 25px;
+            background-color: rgb(236, 175, 68);
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+    }
+}
+
+.item-on {
+    background-color: rgb(56, 170, 60);
+
+    &:after {
+        content: '';
+        left: 25px
+    }
+}
