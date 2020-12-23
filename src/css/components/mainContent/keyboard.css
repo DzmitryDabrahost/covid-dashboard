@@ -108,57 +108,10 @@
     left: 29px;
 }
 
-
-
-
-
-
-/* @media (max-width: 800px) {
-    .keyboard__row {
-        grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    }
-    .whitespace {
-        grid-row: 8 / 9;
-        grid-column: 1 / -1;
-    }
-    .capsLk{
-        grid-row: 6 / 7
-    }
-    .delete-latest {
-        grid-row: 6 / 7;
-        grid-column: 6 / -1;
-    }
-    .enter {
-        grid-row: 7 / 8;
-        grid-column: 6 / -1;
-    }
-    .shift {
-        grid-row: 7 / 8;
-        grid-column: 1 / 4;
-    }
-    .lang {
-        grid-row: 7 / 8;
-        grid-column: 4 / 6;
-    }
-    .capsLk {
-        grid-column: 1 / 4; 
-    }
-    .mute {
-        grid-row: 6 / 7;
-        grid-column: 4 / 6;
-    } 
-} */
 @media (max-width: 660px) {
     .virtual-keyboard--active {
         top: calc(10vh + 2rem);
-        /* transform: scale(.5); */
     }
-    /* .keyboard__row {
-        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-    }
-    .keyboard__btn {
-        height: 40px;
-    } */
 }
 @media (max-width: 550px) {
     .keyboard {
@@ -175,6 +128,3 @@
         transform: scale(.58);
     }
 }
-
-
-
