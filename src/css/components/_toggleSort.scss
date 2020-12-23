@@ -1,7 +1,7 @@
 .toggle-last-day {
     position: absolute;
-    top: 0;
-    right: 235px;
+    top: 5px;
+    right: 25px;
     display: flex;
     align-items: center;
     column-gap: 8px;
@@ -11,10 +11,10 @@
     }
 
     &-item {
-        width: 50px;
+        width: 35px;
         position: relative;
-        height: 25px;
-        border-radius: 30px;
+        height: 20px;
+        border-radius: 35px;
         background-color: rgb(125, 162, 169);
         transition: all 0.3s;
 
@@ -23,8 +23,8 @@
             display: block;
             position: absolute;
             left: 0;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background-color: rgb(236, 175, 68);
             cursor: pointer;
             border-radius: 50%;
@@ -38,6 +38,6 @@
 
     &:after {
         content: '';
-        left: 25px
+        left: 15px
     }
 }

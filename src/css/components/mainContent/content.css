@@ -27,8 +27,8 @@ img {
 }
 .sortCountries {
     position: absolute;
-    top: 0;
-    right: 0;
+    bottom: 0;
+    right: 7px;
     display: flex;
     align-items: center;
 }
@@ -106,9 +106,13 @@ img {
     background:#9aafb9;
 }
 .sortCountries__var {
-    width: 40px;
-    height: 25px;
+    width: 35px;
+    height: 20px;
     margin: 0 0 0 1px;
+    display: grid;
+    place-items: center;
+    color: #1A2C42;
+    font-weight: 700;
     cursor: pointer;
 }
 
@@ -197,30 +201,6 @@ img {
 .keyboard-icon:hover {
     opacity: .7;
 }
-.virtual-keyboard {
-    width: min(800px, 100%);
-    min-height: 350px;
-    background: rgba(255, 255, 255, 1);
-    border: 1px solid  #E0E0E0;
-    position: fixed;
-    top: -100%;
-    right: 0;
-    transition: top .5s;
-}
-.virtual-keyboard--active {
-    top: 0;
-    padding: 2rem 2rem 1rem;
-}
-.closeBtn {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    cursor: pointer;
-    transition: opacity .3s;
-}
-.closeBtn:hover {
-    opacity: .7;
-}
 .footer {
     position: fixed;
     bottom: 0;
@@ -278,7 +258,7 @@ img {
     }
     .tabsContainer {
         height: 65vh;
-        padding-bottom: 0;
+        /* padding-bottom: 0; */
     }
     .footer {
         position: relative;
@@ -296,9 +276,15 @@ img {
     .github__logo {
         opacity: 0;
     }
+    .allTabs__tab {
+        height: 85px;
+    }
 }
 @media (max-width: 370px) {
     .github__logo {
         display: none
+    }
+    .allTabs__tab {
+        height: 70px;
     }
 }
